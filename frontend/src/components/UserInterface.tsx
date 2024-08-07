@@ -87,12 +87,12 @@ const UserInterface: React.FC<UserInterfaceProps> = ({ backendName }) => {
 
 
     return (
-        <div className={`user-interface ${bgColor} ${backendName} w-full max-w-md p-4 my-4 rounded shadow`}>
+        <div className={`user-interface ${bgColor} ${backendName} w-full p-4 rounded shadow`}>
           <img src={`/${backendName}logo.svg`} alt={`${backendName} Logo`} className="w-20 h-20 mb-6 mx-auto" />
           <h2 className="text-xl font-bold text-center text-white mb-6">{`${backendName.charAt(0).toUpperCase() + backendName.slice(1)} Backend`}</h2>
     
           {/* Create user */}
-          <form onSubmit={createUser} className="mb-6 p-4 bg-blue-100 rounded shadow">
+          <form onSubmit={createUser} className="mb-6 p-4 max-w-md bg-blue-100 mx-auto rounded shadow">
             <input
               placeholder="Name"
               value={newUser.username}
@@ -111,7 +111,7 @@ const UserInterface: React.FC<UserInterfaceProps> = ({ backendName }) => {
           </form>
     
           {/* Update user */}
-          <form onSubmit={handleUpdateUser} className="mb-6 p-4 bg-blue-100 rounded shadow">
+          <form onSubmit={handleUpdateUser} className="mb-6 p-4 mx-auto max-w-md bg-blue-100 rounded shadow">
             <input
               placeholder="User Id"
               value={updateUser.id}
@@ -136,7 +136,8 @@ const UserInterface: React.FC<UserInterfaceProps> = ({ backendName }) => {
           </form>
     
           {/* Display users */}
-          <div className="space-y-4">
+          {/* <div className="space-y-4"> */}
+          <div className="space-y-4 w-full max-w-md my-4 mx-auto rounded shadow">
             {users.map((user, index) => (
               <div key={user.id || index} className="flex items-center justify-between bg-white p-4 rounded-lg shadow">
                 <CardComponent card={user} />
